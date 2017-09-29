@@ -1,0 +1,29 @@
+{
+  "name": "suits-sass",
+  "version": "1.0.0",
+  "description": "grunt first project",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": "test-me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gieryneck/Suits-Sass.git"
+  },
+  "keywords": [
+    "grunt",
+    "sass"
+  ],
+  "author": "Gieryneck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gieryneck/Suits-Sass/issues"
+  },
+  "homepage": "https://github.com/Gieryneck/Suits-Sass#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0"
+  }
+}

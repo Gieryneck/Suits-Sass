@@ -1,0 +1,1066 @@
+$primary-color: #fff
+$primary-font: 'Open Sans', sans-serif
+$secondary-font: 'Archivo', sans-serif
+$links-color-1: #22a7c3
+$weight: 800
+
+// troche bez sensu te zmienne ponizej ale na potrzeby cwiczen...
+$small_devices_width: 767px
+$medium_devices_min_width: 768px
+$medium_devices_max_width: 1199px
+
+=transition-effect($property:all, $duration:0.25s, $timingfunction:ease)
+  -webkit-transition: $property $duration $timingfunction
+  -o-transition: $property $duration $timingfunction
+  transition: $property $duration $timingfunction
+
+
+
+//	Passing Content Blocks to a Mixin #mixin-content
+
+//	http://sass-lang.com/documentation/file.SASS_REFERENCE.html#Passing_Content_Blocks_to_a_Mixin__mixin-content
+
+=small-devices
+
+  @media (max-width: $small_devices_width)
+
+    @content  
+
+
+=medium-devices
+
+  @media (min-width: $medium_devices_min_width) and (max-width: $medium_devices_max_width)
+
+    @content
+
+/*------------------- GLOBAL ----------------*/
+
+
+body
+  margin: 0
+  font-family: $primary-font
+
+
+
+.container
+
+  width: 100%
+  max-width: 1200px
+  margin: 0 auto
+
+
+
+section
+
+  >.container
+
+    margin: 60px auto
+    text-align: center
+
+    +small-devices
+
+      margin: 40px auto
+
+
+
+/*-------------------- GRID ----------------*/
+
+
+
+
+.row::before,
+.row::after
+
+  content: ""
+  display: block
+  clear: both
+
+
+
+
+[class*="col-"]
+
+  float: left
+  min-height: 1px
+  padding: 0px
+
+
+
+.col-1
+  width: 8.33%
+.col-2
+  width: 16.66%
+.col-3	
+  width: 25%
+.col-4
+  width: 33.33%
+.col-5
+  width: 41.66%
+.col-6
+  width: 50%
+.col-7
+  width: 58.33%
+.col-8
+  width: 66.66%
+.col-9
+  width: 75%
+.col-10
+  width: 83.33%
+.col-11
+  width: 91.66%
+.col-12	
+  width: 100%
+
+
+
+.col-offset-0
+  margin-left: 0
+.col-offset-1
+  margin-left: 8.33%
+.col-offset-2
+  margin-left: 16.66%
+.col-offset-3
+  margin-left: 25%
+.col-offset-4
+  margin-left: 33.33%
+.col-offset-5
+  margin-left: 41.66%
+.col-offset-6
+  margin-left: 50%
+.col-offset-7
+  margin-left: 58.33%
+.col-offset-8
+  margin-left: 66.66%
+.col-offset-9
+  margin-left: 75%
+.col-offset-10
+  margin-left: 83.33%
+.col-offset-11
+  margin-left: 91.66%
+
+
+
++medium-devices
+
+  .col-m-1 
+    width: 8.33%
+  .col-m-2
+    width: 16.66%
+  .col-m-3 
+    width: 25%
+  .col-m-4 
+    width: 33.33%
+  .col-m-5 
+    width: 41.66%
+  .col-m-6 
+    width: 50%
+  .col-m-7 
+    width: 58.33%
+  .col-m-8 
+    width: 66.66%
+  .col-m-9 
+    width: 75%
+  .col-m-10 
+    width: 83.33%
+  .col-m-11 
+    width: 91.66%
+  .col-m-12
+    width: 100%
+
+
++small-devices
+
+  .col-s-1 
+    width: 8.33%
+  .col-s-2 
+    width: 16.66%
+  .col-s-3 
+    width: 25%
+  .col-s-4 
+    width: 33.33%
+  .col-s-5 
+    width: 41.66%
+  .col-s-6 
+    width: 50%
+  .col-s-7 
+    width: 58.33%
+  .col-s-8 
+    width: 66.66%
+  .col-s-9 
+    width: 75%
+  .col-s-10 
+    width: 83.33%
+  .col-s-11 
+    width: 91.66%
+  .col-s-12 
+    width: 100%
+
+/*-------------------- HEADER , HEADER NAV SECTION ----------------*/
+
+
+header
+
+  height: 90px
+  background-color: #313332	
+
+  +small-devices
+
+    height: auto
+
+nav
+  &::after
+
+    content: ""
+    display: block
+    clear: both
+
+header
+  >nav
+
+    >a
+
+      display: inline-block
+      padding: 0
+      margin: 20px
+
+      +medium-devices
+
+        margin: 20px 10px
+
+      +small-devices
+
+        display: block
+        padding: 20px
+        margin: 0
+
+
+
+      
+
+      img
+
+        padding: 0
+        margin: 0
+        max-width: 100%
+        height: auto
+
+        +small-devices
+
+          display: block
+          margin: 0 auto
+
+
+
+    >ul
+
+      float: right
+      list-style-type: none
+      margin: 0
+      padding: 0
+
+      +small-devices
+
+        float: none
+        display: block
+
+      li
+
+        display: inline-block
+        margin: 0
+        padding: 0
+
+        +small-devices
+
+          display: block
+          text-align: center
+          border-top: 1px solid #eee
+          
+          &:last-of-type
+
+            border-bottom: 1px solid #eee
+
+
+        a
+
+          &:link
+
+            display: inline-block
+            text-decoration: none
+            font-size: 18px
+            color: $primary-color
+            font-weight: 600
+            text-transform: uppercase 
+            line-height: 90px
+            padding: 0 20px
+            +transition-effect
+
+            +medium-devices
+
+              font-size: 16px
+              padding: 0 5px
+
+            +small-devices
+
+              display: block
+              padding: 0
+              line-height: 50px
+
+
+          &:visited
+        
+            color: $primary-color 
+
+          &:hover
+
+            color: #8d8d8d
+
+          &:active
+
+            color: $links-color-1
+    
+
+
+
+
+/*-------------------- HERO SECTION ----------------*/
+
+
+.hero
+
+  background: url(https://static.pexels.com/photos/432059/pexels-photo-432059.jpeg) 20% 38%/cover no-repeat
+  min-height: 60vh
+  max-height: 60vh
+  position: relative
+
+  +medium-devices
+
+    min-height: 70vh
+    max-height: 70vh
+
+  +small-devices
+
+    background: url(https://static.pexels.com/photos/432059/pexels-photo-432059.jpeg) 20% 38%/cover no-repeat
+    min-height: 60vh
+    max-height: 60vh
+    position: relative
+
+
+
+  h1
+
+    padding: 1%
+    margin: 1% 0 1% 1%
+    width: 25%
+    display: inline-block
+    color: $primary-color  
+    font-size: 36px
+    font-weight: 400
+    font-family: $secondary-font
+    position: absolute
+    top: 30%
+    right: 0
+    background-color: rgba(255, 255, 255, .1)
+    line-height: 1.3em
+
+    +medium-devices
+
+      width: 30%
+      top: 10%  
+
+    +small-devices
+
+      box-sizing: border-box
+      padding: 1%
+      margin: 0 0 1% 0
+      width: 100%
+      font-size: 22px
+      top: 70%
+      left: 0
+      bottom: 0
+      line-height: 1.3em
+
+      br
+
+        display: none  
+
+
+
+    span
+
+      display: inline-block
+      font-size: 42px
+      margin-top: 15px
+
+      +small-devices
+
+        font-size: 24px
+        margin-top: 1%
+
+
+
+/*-------------------- FEATURE SECTION ----------------*/
+
+
+.feature 
+
+  i
+
+    font-size: 120px
+
+
+  i.fa-black-tie
+
+    color: #292929
+
+
+  i.fa-suitcase
+
+    color: #582c00
+
+
+  i.fa-gift
+
+    color: #830000
+
+
+  h3
+
+    text-transform: uppercase 
+    font-size: 20px
+    color: #1a1a1a
+    margin-bottom: 5px
+    margin-top: 20px
+
+
+
+  p
+
+    margin-top: 5px
+    color: #898989
+    padding: 5px 30px
+
+
+
+
+
+/*-------------------- GALLERY INVITATION SECTION ----------------*/
+
+.gallery-invitation 
+
+  h2
+
+    text-transform: uppercase
+    color: #1a1a1a
+    font-size: 42px
+    font-weight: $weight
+    margin-bottom: 15px
+
+    +small-devices
+
+      font-size: 22px
+    
+
+
+
+  p
+
+    max-width: 900px
+    margin: 15px auto
+    color: #898989
+
+    +small-devices
+
+      padding: 0 15px
+
+
+
+
+/*-------------------- GALLERY PICTURES SECTION ----------------*/
+
+
+
+
+.picture
+
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 100%
+  width: 100%
+  padding-top: 80%
+  height: 0
+  position: relative
+
+  &:hover
+  
+    .hide
+  
+      visibility: visible
+      opacity: 1
+      left: 0
+
+      +small-devices
+
+        opacity: 0.7
+
++small-devices
+
+  section.gallery 
+
+    .hide
+
+      visibility: visible
+      background-color: transparent
+      left: 0
+      opacity: 0.7        
+
+.picture1
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/447189/pexels-photo-447189.jpeg?w=940&h=650&auto=compress&cs=tinysrgb)
+  z-index: 110
+
+
+
+.picture2
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/38270/son-in-law-cufflinks-black-and-white-bow-tie-38270.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+  z-index: 100
+
+
+.picture3
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/111738/pexels-photo-111738.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+  z-index: 90
+
+
+.picture4
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/447186/pexels-photo-447186.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+  z-index: 80
+
+
+
+
+.picture5
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/192329/pexels-photo-192329.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+  padding-top: 39.996%
+  z-index: 70
+ 
+
+.picture6
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/541524/pexels-photo-541524.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+  padding-top: 39.996%
+  background-position: 50% 20% 
+  z-index: 60
+    
+
+
+
+.picture7
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/173125/pexels-photo-173125.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+  z-index: 50
+
+
+
+.picture8
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/80157/watch-product-80157.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+  background-position: 50% 30% 
+  z-index: 40
+
+
+
+
+.picture9
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/325685/pexels-photo-325685.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+  z-index: 30
+
+
+
+.picture10
+
+  @extend .picture
+  background-image: url(https://images.pexels.com/photos/423364/pexels-photo-423364.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb)
+  z-index: 20
+
+
+
+
+.gallery 
+
+  .hide
+
+    visibility: hidden
+    background-color: rgba(0,0,0, 0.5)
+    position: absolute 
+    left: -100%
+    top: 0
+    width: 100%
+    height: 100%
+    opacity: 0
+    +transition-effect(all, 0.15s, linear)  
+    
+    i
+
+      background-color: #ececec
+      font-size: 18px
+      padding: 6px
+      border-radius: 20%
+      cursor: pointer
+
+    i:nth-of-type(1)
+
+      position: absolute
+      top: 48%
+      left: 30%
+
+    i:nth-of-type(2)
+
+      position: absolute
+      top: 48%
+      left: 60%
+
+
+
+.gallery 
+
+  .picture5, .picture6
+
+    .hide i:nth-of-type(1)
+
+      left: 39%
+
+
+    .hide i:nth-of-type(2) 
+
+      left: 54%
+
+
+
+/**DESIGNERS SECTION  
+  *  
+  *  
+  */ 
+
+
++small-devices
+
+  .designers 
+
+    .container
+
+      margin: 20px auto
+
+    .col-s-6:nth-of-type(1), .col-s-6:nth-of-type(2)
+
+      h4
+
+        margin-bottom: 0
+
+.designer-photo
+
+  margin-top: 40px 
+
+  div
+
+    margin: 0 auto 
+    border-radius: 50%
+    background: url(https://static.pexels.com/photos/247903/pexels-photo-247903.jpeg) no-repeat #ddd
+    background-size: 120%
+    background-position: 60% 0
+    width: 100%
+    padding-top: 100%
+    height: 0
+    cursor: pointer
+    +transition-effect(all, .3s, ease)
+
+    &:hover
+
+      background: url(https://static.pexels.com/photos/247917/pexels-photo-247917.jpeg) no-repeat #ddd
+      background-size: 150%
+      background-position: 70% 0
+      width: 100%
+      padding-top: 100%
+      height: 0
+
+
+
+/**------
+
+ *-------------- VISIT OUR STORE SECTION ----------
+ *------
+ */
+
+
+.store
+
+  width: 100%
+  background-color: #4d0000
+  padding-top: 10px
+
+  img
+
+    max-width: 60%
+    height: auto
+
+  h2
+
+    text-align: left
+    text-transform: uppercase
+    color: $primary-color
+    font-size: 42px
+    font-weight: $weight
+    margin: 0 15px 0 0
+
+    +small-devices
+
+      text-align: center
+      font-size: 26px
+      margin: 0
+
+  p
+
+    text-align: left
+    color: $primary-color
+    letter-spacing: 0.05em
+
+    +small-devices
+
+      text-align: center
+
+  .col-8 
+
+    p
+
+      padding-right: 60px 
+
+  .col-4 
+
+    p
+
+      font-style: italic
+
+
+  +small-devices
+
+    .col-s-12 
+
+      p
+
+        padding: 2% 
+
+/**------
+  *-------------- THE NUMBERS SECTION ----------
+  *------
+  */
+
+
+.numbers 
+
+  .col-3  
+
+    p
+
+      margin: 0
+
+      &:first-child  
+
+        text-transform: uppercase
+        color: #000
+        font-size: 54px
+        font-weight: $weight
+
+      &:last-child
+
+        text-transform: uppercase
+        color: $links-color-1
+        font-size: 18px
+        font-weight: $weight
+
+
+  +small-devices 
+
+    .col-s-6  
+
+      p  
+
+        margin: 0   
+
+        &:first-child
+
+          font-size: 26px  
+
+        &:last-child
+
+          font-size: 16px
+          margin-bottom: 6%
+
+
+
+/**------
+  *-------------- FOOTER SECTION ----------
+  *------
+  */
+
+
+.footer
+
+  width: 100%
+  background-color: #242424
+  padding-top: 2px
+  padding-bottom: 2px
+
+
+  div.container
+
+    margin-top: 50px
+    margin-bottom: 30px
+
+    +small-devices
+
+      margin-top: 0px
+
+
+  h3
+
+    text-transform: uppercase 
+    font-size: 24px
+    color: $primary-color
+    text-align: left
+    margin-bottom: 5px
+    margin-top: 0
+    margin-left: 0
+    position: relative
+
+    +medium-devices
+
+      font-size: 18px
+      margin-left: 10px
+
+    +small-devices
+    
+      text-align: center
+      display: inline-block
+      width: 200px
+      margin-top: 40px
+      margin-bottom: 20px  
+
+  .about-us 
+
+    h3
+
+      &:after
+
+        content: ""
+        border-bottom: 2px solid $primary-color
+        width: 90px
+        position: absolute
+        left: 140px 
+        top: 50%
+
+        +medium-devices
+
+          left: 100px 
+
+        +small-devices
+
+          content: ""
+          border-bottom: 2px solid $primary-color
+          width: 25%
+          position: absolute
+          left: 167px 
+          top: 50%
+
+
+      +small-devices
+    
+        margin-bottom: 6px
+
+
+  .get-in-touch, .socialmedia 
+
+    h3
+      
+      &:after
+
+        content: ""
+        border-bottom: 2px solid $primary-color
+        width: 90px
+        position: absolute
+        left: 190px 
+        top: 50%
+
+        +medium-devices
+
+          left: 135px
+
+        +small-devices
+
+          content: ""
+          border-bottom: 2px solid $primary-color
+          width: 25%
+          position: absolute
+          left: 190px 
+          top: 50%
+
+  p
+
+    font-size: 16px
+    color: #ccc
+    text-align: left
+    padding-right: 20px
+
+    +medium-devices
+
+      font-size: 14px
+      padding: 0 10px
+
+    +small-devices
+
+      padding: 0 2%
+
+  .contact 
+
+    p
+
+      font-weight: 600
+      color: #f4f4f4
+      padding-right: 15px
+      margin-right: 5px
+
+      +small-devices
+
+        text-align: center
+        padding-right: 0
+        margin-right: 1px
+
+  +small-devices
+
+    .col-9
+    
+      p
+
+        padding: 0 1% 0 0      
+
+
+
+
+.tight 
+
+  p
+
+    margin: 8px 1px
+
+
+
+.socialfonts
+
+  text-align: left  
+
+  +medium-devices
+
+    margin-left: 10px
+
+  +small-devices
+  
+    text-align: center  
+
+.socialfonts 
+
+  a
+
+    &:link
+
+      display: inline-block
+      background-color: $links-color-1
+      font-size: 18px 
+      color: $primary-color
+      font-weight: 300
+      padding: 6px
+      margin: 0 10px 0 0
+      text-decoration: none
+      +transition-effect(all, 0.1s, linear)
+
+      +medium-devices
+
+        margin: 0 5px 0 5px
+
+      +small-devices
+
+        box-sizing: border-box
+        border: 1px solid
+        border-color: black
+        display: block
+        font-size: 30px 
+        padding: 2% 0
+        margin: 0
+
+
+    &:visited
+
+      color: $primary-color
+      background-color: $links-color-1
+
+      +small-devices
+
+        border-color: black
+
+    &:hover
+
+      background-color: #4d0000 
+
+    &:active 
+
+      color: $links-color-1
+
+
+.socialmedia 
+
+  p
+
+    margin: 0  
+
+
+
+
+.copyrights
+
+  background-color: #151515 
+
+  p
+
+    text-align: center
+    color: #ccc
+    padding: 16px
+    margin: 0 auto
+
+    +medium-devices
+
+      font-size: 16px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
