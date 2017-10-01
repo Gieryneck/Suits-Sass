@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/Gieryneck/Suits-Sass#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.13",
     "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-sass": "^2.0.0"
